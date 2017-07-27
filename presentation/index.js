@@ -1,5 +1,5 @@
 import React from 'react';
-import { Appear, Deck, Slide, Text, Heading, List, ListItem } from 'spectacle';
+import { Appear, BlockQuote, Quote, Cite, Deck, Slide, Text, Heading, List, ListItem } from 'spectacle';
 import CodeSlide from 'spectacle-code-slide';
 import createTheme from 'spectacle/lib/themes/default';
 
@@ -11,6 +11,8 @@ import { functionScoped, blockScoped, hoisted, notHoisted, immutable } from './a
 import { simple, defaults, named } from './assets/modules';
 import { proto, classIn, withReact, withBetterReact } from './assets/class';
 import { before, after, complex, func } from './assets/destructuring';
+import { basicSpread, arrs, assign } from './assets/spread';
+import {  } from './assets/arrows';
 
 const theme = createTheme({
   primary: '#fff',
@@ -246,7 +248,7 @@ export default () => (
       lang="js"
       code={func}
       ranges={[
-        { loc: [0, 0], title: 'Refactoring a function' },
+        { loc: [0, 0], title: 'Using in a function' },
         { loc: [0, 6] },
         { loc: [7, 10] }
       ]}
@@ -254,5 +256,59 @@ export default () => (
     <Slide bgColor="tertiary">
       <Heading fit textColor="primary" textFont="tertiary">...spread</Heading>
     </Slide>
+    <CodeSlide
+      lang="js"
+      code={basicSpread}
+      ranges={[
+        { loc: [0, 2], title: 'Using spreads with arrays' },
+        { loc: [3, 5], title: 'Using spreads with objects' },
+        { loc: [6, 7], title: 'Using spreads with JSX' }
+      ]}
+    />
+    <CodeSlide
+      lang="js"
+      code={arrs}
+      ranges={[
+        { loc: [0, 0], title: 'Destructing with spreads' },
+        { loc: [0, 3] },
+        { loc: [4, 8] }
+      ]}
+    />
+    <CodeSlide
+      lang="js"
+      code={assign}
+      ranges={[
+        { loc: [0, 0], title: 'Extending objects' },
+        { loc: [0, 4] },
+        { loc: [5, 11] }
+      ]}
+    />
+    <Slide bgColor="tertiary">
+      <Heading fit textColor="primary" textFont="tertiary">(arrow) => &#123; functions &#125; </Heading>
+      <List>
+        <Appear>
+          <ListItem>No Arguments Object</ListItem>
+        </Appear>
+        <Appear>
+          <ListItem><i>this</i> is bound to the lexical scope</ListItem>
+        </Appear>
+      </List>
+    </Slide>
+    <Slide bgColor="#000">
+      <BlockQuote>
+        <Quote textFont="tertiary">The value of this inside of the function is
+          determined by where the arrow function is
+          defined and not where it is used.
+        </Quote>
+        <Cite>Understanding ECMAScript 6, Nicolas C. Zakas</Cite>
+      </BlockQuote>
+    </Slide>
+    <CodeSlide
+      lang="js"
+      code={``}
+      ranges={[
+        { loc: [0, 0], title: '' }
+      ]}
+    />
   </Deck>
 );
