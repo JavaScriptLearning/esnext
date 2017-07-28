@@ -4,17 +4,14 @@
   "description": "ReactJS Powered Presentation Framework",
   "main": "lib/index.js",
   "scripts": {
-    "clean": "rimraf dist",
+    "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
     "lint": "eslint --ext .js,.jsx .",
-    "predeploy": "npm run clean & npm run build",
-    "deploy": "gh-pages -d dist",
     "start": "cross-env NODE_ENV=development node server.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "gh-pages": "^1.0.0",
     "normalize.css": "3.0.3",
     "react": "15.4.2",
     "react-dom": "15.4.2",
