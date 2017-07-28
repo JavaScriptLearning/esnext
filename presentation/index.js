@@ -12,7 +12,7 @@ import { simple, defaults, named } from './assets/modules';
 import { proto, classIn, withReact, withBetterReact } from './assets/class';
 import { before, after, complex, func } from './assets/destructuring';
 import { basicSpread, arrs, assign } from './assets/spread';
-import {  } from './assets/arrows';
+import { basicArrow, arrowDestructed, implicit } from './assets/arrows';
 
 const theme = createTheme({
   primary: '#fff',
@@ -305,10 +305,36 @@ export default () => (
     </Slide>
     <CodeSlide
       lang="js"
-      code={``}
+      code={basicArrow}
       ranges={[
-        { loc: [0, 0], title: '' }
+        { loc: [0, 0], title: 'ES5 function vs arrow function' },
+        { loc: [0, 3] },
+        { loc: [4, 7] }
       ]}
     />
+    <CodeSlide
+      lang="js"
+      code={arrowDestructed}
+      ranges={[
+        { loc: [0, 0], title: 'Add destructuring' },
+        { loc: [0, 3] }
+      ]}
+    />
+    <CodeSlide
+      lang="js"
+      code={implicit}
+      ranges={[
+        { loc: [0, 0], title: 'Implicitly return' },
+        { loc: [0, 1] }
+      ]}
+    />
+    <Slide bgColor="tertiary">
+      <Heading fit textColor="primary" textFont="tertiary" lineHeight={1.5}>end;</Heading>
+      <Text textSize={18}>Further reading {}
+        <a href="https://github.com/getify/You-Dont-Know-JS/tree/master/es6%20%26%20beyond">
+          You Don't Know JS: ES6 & Beyond
+        </a>
+      </Text>
+    </Slide>
   </Deck>
 );
